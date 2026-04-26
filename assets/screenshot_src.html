@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>voice-agent-cli screenshot</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Fira+Code:wght@400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0d0d0d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+
+  .window {
+    width: 760px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 40px 120px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.06);
+    background: #111418;
+  }
+
+  .titlebar {
+    background: #1c1f26;
+    padding: 13px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .dots { display: flex; gap: 7px; }
+  .dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+  }
+  .dot.red    { background: #ff5f57; }
+  .dot.yellow { background: #febc2e; }
+  .dot.green  { background: #28c840; }
+
+  .title-text {
+    flex: 1;
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  .terminal {
+    padding: 28px 32px 36px;
+    font-size: 13.5px;
+    line-height: 1.85;
+    color: #c8d0e0;
+    background: #111418;
+  }
+
+  .prompt { color: #4ec9b0; }
+  .cmd    { color: #dcdcaa; }
+  .flag   { color: #9cdcfe; }
+  .value  { color: #ce9178; }
+  .dim    { color: #555; }
+  .blank  { display: block; height: 6px; }
+
+  .line { display: flex; align-items: flex-start; gap: 0; }
+
+  .tag-mic    { color: #f8c555; font-weight: 700; }
+  .tag-notes  { color: #7dcfff; font-weight: 700; }
+  .tag-bot    { color: #bb9af7; font-weight: 700; }
+  .tag-sound  { color: #73daca; font-weight: 700; }
+  .tag-ok     { color: #9ece6a; font-weight: 700; }
+  .tag-err    { color: #f7768e; font-weight: 700; }
+
+  .transcript { color: #a8ff80; font-style: italic; }
+  .response   { color: #e2e8f0; }
+  .meta       { color: #4a5568; font-size: 12px; }
+
+  .divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    margin: 12px 0;
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(78,201,176,0.12);
+    color: #4ec9b0;
+    border: 1px solid rgba(78,201,176,0.3);
+    border-radius: 4px;
+    padding: 0 6px;
+    font-size: 11px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 15px;
+    background: #4ec9b0;
+    vertical-align: middle;
+    margin-left: 2px;
+    animation: blink 1.1s step-end infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .section-header {
+    color: #3d4455;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .progress-bar {
+    display: inline-block;
+    height: 4px;
+    width: 140px;
+    background: #1e2333;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin: 0 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4ec9b0, #7aa2f7);
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="window">
+  <div class="titlebar">
+    <div class="dots">
+      <div class="dot red"></div>
+      <div class="dot yellow"></div>
+      <div class="dot green"></div>
+    </div>
+    <div class="title-text">voice-agent-cli — zsh — 80×28</div>
+  </div>
+  <div class="terminal">
+
+    <!-- Command 1 -->
+    <div>
+      <span class="prompt">~/voice-agent-cli</span> <span class="dim">on</span> <span style="color:#f7768e">main</span> <span class="dim">❯</span>&nbsp;<span class="cmd">python</span> <span class="value">main.py</span> <span class="flag">--record</span> <span class="flag">--duration</span> <span class="value">5</span>
+    </div>
+
+    <span class="blank"></span>
+
+    <!-- Loading model -->
+    <div><span class="dim">  ▸</span> Loading Whisper model <span class="badge">small</span>  <span class="meta">provider=anthropic  tts=gtts</span></div>
+    <div><span class="tag-ok">  ✔</span> <span class="meta">Model loaded in 1.2s</span></div>
+
+    <span class="blank"></span>
+    <hr class="divider">
+
+    <!-- Session 1 -->
+    <div class="section-header">  SESSION 1</div>
+    <div><span class="tag-mic">  🎤 Recording</span> <span class="progress-bar"><div class="progress-fill" style="width:100%"></div></span> <span class="meta">5.0s  16kHz  mono</span></div>
+    <div><span class="tag-notes">  📝 Transcript: </span><span class="transcript">"What is the capital of Morocco?"</span></div>
+    <div><span class="meta">        confidence=0.97  lang=en</span></div>
+    <div><span class="tag-bot">  🤖 Claude:</span>    <span class="response">The capital of Morocco is Rabat, not Casablanca</span></div>
+    <div><span class="meta">               which is the largest city. Rabat has been the</span></div>
+    <div><span class="meta">               country's political capital since independence in 1956.</span></div>
+    <div><span class="tag-sound">  🔊 Speaking</span>  <span class="progress-bar"><div class="progress-fill" style="width:60%"></div></span> <span class="meta">gtts  en  ~4.1s</span></div>
+
+    <span class="blank"></span>
+    <hr class="divider">
+
+    <!-- Session 2 -->
+    <div class="section-header">  SESSION 2</div>
+    <div><span class="tag-mic">  🎤 Recording</span> <span class="progress-bar"><div class="progress-fill" style="width:100%"></div></span> <span class="meta">5.0s  16kHz  mono</span></div>
+    <div><span class="tag-notes">  📝 Transcript: </span><span class="transcript">"And what language do they speak there?"</span></div>
+    <div><span class="meta">        confidence=0.95  lang=en</span></div>
+    <div><span class="tag-bot">  🤖 Claude:</span>    <span class="response">Morocco's official languages are Arabic and Amazigh</span></div>
+    <div><span class="meta">               (Berber). French is widely used in business and</span></div>
+    <div><span class="meta">               education, and Spanish is spoken in the north.</span></div>
+    <div><span class="tag-sound">  🔊 Speaking</span>  <span class="progress-bar"><div class="progress-fill" style="width:45%"></div></span> <span class="meta">gtts  en  ~5.3s</span></div>
+
+    <span class="blank"></span>
+    <hr class="divider">
+
+    <!-- Waiting -->
+    <div><span class="prompt">  ❯</span> Waiting for next input… <span class="cursor"></span></div>
+
+  </div>
+</div>
+</body>
+</html>
